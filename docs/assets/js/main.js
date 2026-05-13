@@ -67,6 +67,24 @@
     });
   });
 
+  const calendarToggle = document.getElementById('gather-toggle');
+  const calendarPanel = document.getElementById('gather-calendar');
+  if (calendarToggle && calendarPanel) {
+    const chevron = calendarToggle.querySelector('[data-chevron]');
+    const labelClosed = calendarToggle.querySelector('[data-label-closed]');
+    const labelOpen = calendarToggle.querySelector('[data-label-open]');
+    calendarToggle.addEventListener('click', () => {
+      const isOpen = calendarPanel.classList.toggle('hidden') === false;
+      calendarToggle.setAttribute('aria-expanded', String(isOpen));
+      if (chevron) chevron.style.transform = isOpen ? 'rotate(180deg)' : '';
+      if (labelClosed) labelClosed.classList.toggle('hidden', isOpen);
+      if (labelOpen) labelOpen.classList.toggle('hidden', !isOpen);
+      if (isOpen) {
+        calendarPanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  }
+
   const year = document.getElementById('year');
   if (year) year.textContent = String(new Date().getFullYear());
 })();
