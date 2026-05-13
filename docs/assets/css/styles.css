@@ -64,8 +64,13 @@ body {
   backdrop-filter: saturate(140%) blur(12px);
   border-bottom: 1px solid rgba(10, 27, 61, 0.08);
 }
-#site-nav.is-solid .nav-logo-light { opacity: 0; }
-#site-nav.is-solid .nav-logo-dark { opacity: 1; }
+#site-nav .nav-eyebrow {
+  color: #fbf8f1;
+  transition: color 0.3s ease;
+}
+#site-nav.is-solid .nav-eyebrow {
+  color: #0a1b3d;
+}
 
 #site-nav.is-solid .nav-link {
   color: #0a1b3d;

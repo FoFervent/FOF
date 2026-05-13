@@ -19,7 +19,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Bevan&family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
 
@@ -52,6 +52,7 @@
             fontFamily: {
               display: ['"Cormorant Garamond"', 'Georgia', 'serif'],
               sans: ['Inter', 'system-ui', 'sans-serif'],
+              slab: ['Bevan', 'Georgia', 'serif'],
             },
             letterSpacing: {
               eyebrow: '0.32em',
@@ -76,21 +77,14 @@
       class="fixed inset-x-0 top-0 z-40 transition-all duration-300"
     >
       <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-10">
-        <a href="#top" class="nav-logo group relative flex items-center" aria-label="Fellowship of the Fervent — home">
+        <a href="#top" class="nav-logo group flex flex-col leading-none" aria-label="Fellowship of the Fervent — home">
+          <span class="nav-eyebrow font-slab text-[0.6rem] tracking-[0.18em] sm:text-[0.7rem]">FELLOWSHIP OF THE</span>
           <img
-            src="assets/img/fervent-logo-light.png"
-            alt="Fellowship of the Fervent"
-            class="nav-logo-light h-10 w-auto sm:h-12 transition-opacity duration-300"
-            width="1400"
-            height="503"
-          />
-          <img
-            src="assets/img/fervent-logo.png"
-            alt=""
-            aria-hidden="true"
-            class="nav-logo-dark absolute inset-0 h-10 w-auto sm:h-12 opacity-0 transition-opacity duration-300"
-            width="1400"
-            height="503"
+            src="assets/img/fervent-mark.png"
+            alt="Fervent"
+            class="mt-1 h-7 w-auto sm:h-9 transition-opacity group-hover:opacity-90"
+            width="1200"
+            height="311"
           />
         </a>
 
@@ -182,15 +176,16 @@
             <span class="h-px w-8 bg-gold-500/60"></span>
           </span>
 
-          <h1 data-reveal class="w-full max-w-3xl">
+          <h1 data-reveal class="flex w-full max-w-3xl flex-col items-center leading-none">
             <span class="sr-only">Fellowship of the Fervent</span>
+            <span aria-hidden="true" class="font-slab text-cream-50 text-xl tracking-[0.22em] sm:text-2xl md:text-3xl">FELLOWSHIP OF THE</span>
             <img
-              src="assets/img/fervent-logo-light.png"
+              src="assets/img/fervent-mark.png"
               alt=""
               aria-hidden="true"
-              class="mx-auto w-full h-auto drop-shadow-[0_20px_40px_rgba(0,0,0,0.45)]"
-              width="1400"
-              height="503"
+              class="mt-4 w-full h-auto drop-shadow-[0_20px_40px_rgba(0,0,0,0.45)] sm:mt-5"
+              width="1200"
+              height="311"
             />
           </h1>
 
@@ -626,13 +621,16 @@
       <div class="mx-auto max-w-7xl px-6 py-16 lg:px-10">
         <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           <div class="lg:col-span-2">
-            <img
-              src="assets/img/fervent-logo-light.png"
-              alt="Fellowship of the Fervent"
-              class="h-14 w-auto"
-              width="1400"
-              height="503"
-            />
+            <div class="flex flex-col leading-none">
+              <span class="font-slab text-cream-50 text-xs tracking-[0.2em]">FELLOWSHIP OF THE</span>
+              <img
+                src="assets/img/fervent-mark.png"
+                alt="Fervent"
+                class="mt-2 h-9 w-auto"
+                width="1200"
+                height="311"
+              />
+            </div>
             <p class="mt-6 max-w-md text-sm leading-relaxed">
               Building up, connecting, and mobilizing men and men's ministries
               for the expansion of God's kingdom.
