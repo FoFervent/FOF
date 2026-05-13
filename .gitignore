@@ -1,0 +1,11 @@
+# Editor & OS
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# Claude Code workspace
+.claude/
+
+# Local logs / tmp
+*.log

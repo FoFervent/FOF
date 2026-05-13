@@ -1,0 +1,297 @@
+/* ------------------------------------------------------------------
+   Fellowship of the Fervent — custom layer atop Tailwind CDN
+   Keeps the high-end feel: generous spacing, subtle reveal,
+   refined typography. Most utility classes live inline in the HTML.
+------------------------------------------------------------------ */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-feature-settings: 'ss01', 'cv11';
+  text-rendering: optimizeLegibility;
+}
+
+/* -------- Nav -------- */
+/* Default state: nav is transparent over the dark hero -> light colors.
+   .is-solid state (scrolled past hero): cream background -> dark colors. */
+
+#site-nav .nav-link {
+  position: relative;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: rgba(251, 248, 241, 0.88);
+  transition: color 0.3s ease;
+}
+#site-nav .nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6px;
+  height: 1px;
+  background: #e5c76f;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+#site-nav .nav-link:hover {
+  color: #e5c76f;
+}
+#site-nav .nav-link:hover::after {
+  transform: scaleX(1);
+}
+
+#site-nav .nav-cta {
+  color: #fbf8f1;
+  border: 1px solid rgba(229, 199, 111, 0.7);
+}
+#site-nav .nav-cta:hover {
+  background: #c9a24a;
+  color: #070f26;
+  box-shadow: 0 8px 30px -6px rgba(201, 162, 74, 0.55);
+}
+
+#site-nav .nav-toggle {
+  color: #fbf8f1;
+  border: 1px solid rgba(251, 248, 241, 0.25);
+}
+
+/* Solid state */
+#site-nav.is-solid {
+  background: rgba(251, 248, 241, 0.92);
+  backdrop-filter: saturate(140%) blur(12px);
+  border-bottom: 1px solid rgba(10, 27, 61, 0.08);
+}
+#site-nav.is-solid .nav-logo-light { opacity: 0; }
+#site-nav.is-solid .nav-logo-dark { opacity: 1; }
+
+#site-nav.is-solid .nav-link {
+  color: #0a1b3d;
+}
+#site-nav.is-solid .nav-link:hover {
+  color: #a98438;
+}
+#site-nav.is-solid .nav-link::after {
+  background: #c9a24a;
+}
+
+#site-nav.is-solid .nav-cta {
+  color: #0a1b3d;
+  border-color: #c9a24a;
+}
+#site-nav.is-solid .nav-cta:hover {
+  background: #c9a24a;
+  color: #070f26;
+}
+
+#site-nav.is-solid .nav-toggle {
+  color: #0a1b3d;
+  border-color: rgba(10, 27, 61, 0.15);
+}
+
+.mobile-link {
+  display: block;
+  padding: 0.85rem 0.25rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #0a1b3d;
+  border-bottom: 1px solid rgba(10, 27, 61, 0.06);
+}
+.mobile-link:last-of-type {
+  border-bottom: 0;
+}
+
+/* -------- Reveal on scroll -------- */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.9s ease, transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* -------- Hero scroll cue -------- */
+@keyframes bounce-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
+}
+.animate-bounce-slow {
+  animation: bounce-slow 2.4s ease-in-out infinite;
+}
+
+/* -------- Pillar cards -------- */
+.pillar-card {
+  position: relative;
+  padding: 2rem 1.75rem;
+  background: #fbf8f1;
+  border: 1px solid rgba(10, 27, 61, 0.08);
+  border-radius: 14px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  overflow: hidden;
+}
+.pillar-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 3px;
+  background: #c9a24a;
+  transform: scaleY(0);
+  transform-origin: top center;
+  transition: transform 0.4s ease;
+}
+.pillar-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 60px -28px rgba(7, 15, 38, 0.25);
+  border-color: rgba(201, 162, 74, 0.4);
+}
+.pillar-card:hover::before {
+  transform: scaleY(1);
+}
+.pillar-icon {
+  display: inline-flex;
+  height: 3rem;
+  width: 3rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  background: rgba(201, 162, 74, 0.12);
+  color: #a98438;
+  margin-bottom: 1.25rem;
+}
+.pillar-icon svg {
+  height: 1.35rem;
+  width: 1.35rem;
+}
+.pillar-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.65rem;
+  font-weight: 600;
+  color: #070f26;
+}
+.pillar-body {
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: rgba(10, 27, 61, 0.7);
+}
+
+/* -------- Gather cards -------- */
+.gather-card {
+  position: relative;
+  padding: 1.75rem;
+  background: #fbf8f1;
+  border: 1px solid rgba(10, 27, 61, 0.08);
+  border-radius: 16px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.gather-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 22px 50px -28px rgba(7, 15, 38, 0.25);
+}
+.gather-badge {
+  display: inline-block;
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 0.3rem 0.7rem;
+  border-radius: 9999px;
+  background: rgba(201, 162, 74, 0.12);
+  color: #a98438;
+}
+.gather-title {
+  margin-top: 1rem;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #070f26;
+  line-height: 1.2;
+}
+.gather-time {
+  margin-top: 0.35rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  color: #a98438;
+  font-weight: 500;
+}
+.gather-body {
+  margin-top: 0.85rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: rgba(10, 27, 61, 0.7);
+}
+
+/* -------- Conference meta + schedule -------- */
+.meta-icon {
+  display: inline-flex;
+  height: 2.5rem;
+  width: 2.5rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  background: rgba(229, 199, 111, 0.12);
+  color: #e5c76f;
+  flex-shrink: 0;
+}
+.meta-icon svg { height: 1.15rem; width: 1.15rem; }
+.meta-label {
+  font-size: 0.65rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(251, 248, 241, 0.55);
+}
+.meta-value {
+  margin-top: 0.25rem;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #fbf8f1;
+}
+
+.schedule-row {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 0.85rem 0;
+}
+.schedule-time {
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #e5c76f;
+  font-weight: 600;
+}
+.schedule-event {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.2rem;
+  color: #fbf8f1;
+}
+
+/* -------- Footer -------- */
+.footer-link {
+  color: rgba(251, 248, 241, 0.7);
+  transition: color 0.2s ease;
+}
+.footer-link:hover {
+  color: #e5c76f;
+}
+
+/* -------- Toast -------- */
+#copy-toast.is-visible {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
