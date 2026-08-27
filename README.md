@@ -66,11 +66,11 @@ All copy lives in `docs/index.html`. Notable spots:
 
 - **Hero & taglines** — first `<section id="top">`
 - **About section** — `<section id="about">`
-- **Four pillars** — `<section id="pillars">`
+- **Vision, mission & core values** — `<section id="pillars">`
 - **Weekly gathering & calendar CTA** — `<section id="gather">` (the
   "See This Week's Location" link currently has `href="#"` and is marked
   `data-placeholder="calendar-link"` — drop in the FoF calendar URL there)
-- **Spring Conference 2026** — `<section id="conference">`
+- **Fall Conference 2026** — `<section id="conference">`
 - **Love Offering / Zelle** — `<section id="give">`
 - **Contact / footer** — `<footer>`
 
